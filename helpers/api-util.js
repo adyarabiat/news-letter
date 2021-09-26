@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 export async function getAllEvents() {
    const response = await fetch(
       "https://nextjs-course-338fc-default-rtdb.firebaseio.com/events.json"
@@ -37,4 +40,19 @@ export async function getFilteredEvents(dateFilter) {
    });
 
    return filteredEvents;
+}
+
+// helper function to the path to not repeat it
+export function eventsPath() {
+   return path.join(process.cwd(), "data", "data.json");
+}
+
+export function extractEvent(filePath) {
+   // first we read the data from the file
+   const fileData = fs.readFileSync(filePath);
+
+   // then we parse the json to be js object
+   const data = JSON.parse(fileData);
+
+   return data;
 }

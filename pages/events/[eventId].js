@@ -7,6 +7,7 @@ import EventLogistics from "../../components/event-detail/event-logistics";
 import EventContent from "../../components/event-detail/event-content";
 import ErrorAlert from "../../components/ui/error-alert";
 import Comment from "../../components/input/comments";
+
 function EventDetailPage(props) {
    const event = props.selectedEvent;
 
